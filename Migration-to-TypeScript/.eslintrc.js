@@ -5,8 +5,8 @@ module.exports = {
         "es2021": true
     },
     "extends": [
-        "eslint:airbnb-base",
-        "plugin:@typescript-eslint/airbnb-base"
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended"
     ],
     "overrides": [
     ],
@@ -18,6 +18,6 @@ module.exports = {
         "@typescript-eslint"
     ],
     "rules": {
-        "@typescript-eslint/no-explicit-any"
+        "@typescript-eslint/no-explicit-any": 2
     }
 }
