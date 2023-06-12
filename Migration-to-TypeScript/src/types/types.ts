@@ -29,3 +29,12 @@ export interface Source {
     language: string,
     country: string
 }
+
+export function getElement<T extends HTMLElement>(root: HTMLElement, selector: string): T {
+    const element = root.querySelector<T>(selector)
+    if (!element) {
+        throw new TypeError('Element should exist in DOM')
+    }
+    return element
+}
+
