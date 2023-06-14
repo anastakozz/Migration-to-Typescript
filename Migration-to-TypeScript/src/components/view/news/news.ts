@@ -1,6 +1,7 @@
 import './news.css';
 import { Article } from '../../../types/types';
 import { getElement } from '../../../types/types';
+import { isHTMLElement } from '../../../types/types';
 
 
 class News {
@@ -8,12 +9,14 @@ class News {
         const news = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
 
         const fragment = document.createDocumentFragment();
-        const newsItemTemp  = getElement<HTMLElement>(document.body, '#newsItemTemp') as HTMLTemplateElement;
+        const newsItemTemp  = getElement<HTMLElement>(document.body, '#newsItemTemp');
+        
 
         news.forEach((item, idx: number) => {
-            
-            const newsClone = newsItemTemp.content.cloneNode(true) as HTMLElement;
-            if (idx % 2) getElement<HTMLElement>(newsClone, '.news__item').classList.add('alt');
+            if (newsItemTemp && newsItemTemp instanceof HTMLTemplateElement){
+                const newsClone = newsItemTemp.content.cloneNode(true);
+                if(isHTMLElement(newsClone)){
+                    if (idx % 2) getElement<HTMLElement>(newsClone, '.news__item').classList.add('alt');
 
             getElement<HTMLElement>(newsClone,'.news__meta-photo').style.backgroundImage = `url(${
                 item.urlToImage || 'img/news_placeholder.jpg'
@@ -30,7 +33,11 @@ class News {
             getElement<HTMLElement>(newsClone,'.news__description-content').textContent = item.description;
             getElement<HTMLElement>(newsClone,'.news__read-more a').setAttribute('href', item.url);
 
+                }
+            
             fragment.append(newsClone);
+            }
+            
         });
         const newsHtml = getElement<HTMLElement>(document.body, '.news');
         newsHtml.innerHTML = '';
