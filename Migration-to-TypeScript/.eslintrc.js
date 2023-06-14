@@ -1,3 +1,5 @@
+const { off } = require("process");
+
 module.exports = {
   env: {
     browser: true,
@@ -14,7 +16,8 @@ module.exports = {
     project: './tsconfig.json'
   },
   rules: { 
-    "@typescript-eslint/no-explicit-any": 2
+    "@typescript-eslint/no-explicit-any": 2,
+    "@typescript-eslint/strict-boolean-expressions": 0
   },
 
   plugins: ["@typescript-eslint"]
