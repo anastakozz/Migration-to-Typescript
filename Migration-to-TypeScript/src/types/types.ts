@@ -38,3 +38,11 @@ export function getElement<T extends HTMLElement>(root: HTMLElement, selector: s
     return element
 }
 
+export type Callback<T = void> = (data: T) => void;
+
+export interface Options {
+    // sources?: string,
+    // apiKey?: string,
+    [key: string]: string
+}
+
