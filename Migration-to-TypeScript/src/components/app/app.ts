@@ -3,8 +3,8 @@ import { AppView } from '../view/appView'
 import { getElement } from '../../types/types'
 
 class App {
-  controller: AppController
-  view: AppView
+  private readonly controller: AppController
+  private readonly view: AppView
   constructor () {
     this.controller = new AppController()
     this.view = new AppView()
