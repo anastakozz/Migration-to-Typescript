@@ -41,8 +41,12 @@ export function getElement<T extends HTMLElement>(root: HTMLElement, selector: s
 export type Callback<T = void> = (data: T) => void;
 
 export interface Options {
-    // sources?: string,
+    // sources?: string | null,
     // apiKey?: string,
-    [key: string]: string
+    [key: string]: string 
+}
+
+export function isHTMLElement(element: EventTarget | null): element is HTMLElement {
+ return Boolean(element && element instanceof HTMLElement);
 }
 
