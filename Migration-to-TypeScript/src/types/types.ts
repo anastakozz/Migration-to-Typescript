@@ -46,3 +46,9 @@ export type Options = Record<string, string>
 export function isHTMLElement (element: EventTarget | null): element is HTMLElement {
   return Boolean((element != null) && element instanceof HTMLElement)
 }
+
+export enum Endpoints {
+  Everything = 'everything',
+  Top_headlines = 'top-headlines',
+  Sources = 'sources'
+}
