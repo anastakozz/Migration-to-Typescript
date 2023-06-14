@@ -1,25 +1,19 @@
-import { Callback } from "../../types/types";
 import { Options } from "../../types/types";
 
 class Loader {
-    baseLink: string;
-    options: Options;
-
-    constructor(baseLink: string, options: Options) {
+    constructor(private baseLink: string, private options: Options) {
         this.baseLink = baseLink;
         this.options = options;
     }
 
     public getResp<T>(
         { endpoint, options = {} }: { endpoint: string, options?: Options},
-        callback: Callback<T> = () => {
-            console.error('No callback for GET response');
-        }
+        callback: (data: T) => void
     ) {
         this.load('GET', endpoint, callback, options);
     }
 
-    protected errorHandler(res: Response) {
+    private errorHandler(res: Response) {
         if (!res.ok) {
             if (res.status === 401 || res.status === 404)
                 console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
@@ -40,11 +34,11 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    load<T>(method: string, endpoint: string, callback: Callback<T>, options = {}) {
+    private load<T>(method: string, endpoint: string, callback: (data: T) => void, options = {}) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
-            .then((data) => callback(data))
+            .then((data: T) => callback(data))
             .catch((err) => console.error(err));
     }
 }

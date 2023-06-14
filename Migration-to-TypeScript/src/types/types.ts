@@ -1,3 +1,4 @@
+
 export interface NewsResponse {
     status: string,
     totalResults: number,

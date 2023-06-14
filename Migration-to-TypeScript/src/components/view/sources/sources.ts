@@ -12,7 +12,6 @@ class Sources {
 
             getElement<HTMLElement>(sourceClone, '.source__item-name').textContent = item.name;
             getElement<HTMLElement>(sourceClone, '.source__item').setAttribute('data-source-id', item.id);
-
             fragment.append(sourceClone);
         });
 
