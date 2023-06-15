@@ -1,6 +1,7 @@
 body {
     color: #fff;
-    background: #17181c;
+    background: rgb(27,0,36);
+    background: linear-gradient(90deg, rgba(27,0,36,1) 0%, rgba(2,92,111,1) 100%);
     font-family: sans-serif;
 }
 
@@ -21,15 +22,38 @@ footer {
 }
 footer .copyright {
     font-size: 14px;
-    color: #333;
+    color: white;
     text-align: center;
+    transition: all 0.3s;
 }
 footer .copyright a {
-    color: #444;
+    color: white;
 }
 footer .copyright a:hover {
-    color: #555;
+    color: #3fcc59;
+    transition: all 0.3s;
 }
 footer .copyright:before {
     content: '©';
+}
+
+footer .git-link {
+    color: white;
+    transition: all 0.3s;
+}
+
+#rs-logo {
+    height: 20px;
+    filter: invert(100%);
+    margin: 0 30px;
+}
+
+#rs-logo:hover {
+    cursor: pointer;
+}
+
+footer .git-link:hover{
+    cursor: pointer;
+    color: #3fcc59;
+    transition: all 0.3s;
 }
