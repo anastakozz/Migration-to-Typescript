@@ -43,9 +43,8 @@ export type CallbackType<T = void> = (data: T) => void
 
 export type OptionsType = Record<string, string>
 
-export function isHTMLElement (element: EventTarget | null): element is HTMLElement {
-  return Boolean((element != null) && element instanceof HTMLElement)
-}
+export const isHtmlElement = (element: unknown): element is HTMLElement =>
+  element instanceof HTMLElement || element instanceof Node
 
 export enum EndpointsEnum {
   Everything = 'everything',

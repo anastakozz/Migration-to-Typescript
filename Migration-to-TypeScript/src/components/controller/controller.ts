@@ -1,5 +1,5 @@
 import AppLoader from './appLoader'
-import { isHTMLElement, type NewsResponseI, type SourcesResponseI } from '../../types/types'
+import { isHtmlElement, type NewsResponseI, type SourcesResponseI } from '../../types/types'
 import { EndpointsEnum } from '../../types/types'
 
 class AppController extends AppLoader {
@@ -14,11 +14,11 @@ class AppController extends AppLoader {
 
   getNews (e: Event, callback: (data: NewsResponseI) => void): void {
     let target: EventTarget | null = e.target
-    if (isHTMLElement(target)) {
+    if (isHtmlElement(target)) {
       const newsContainer: HTMLElement = e.currentTarget as HTMLElement
-      if (isHTMLElement(newsContainer)) {
+      if (isHtmlElement(newsContainer)) {
         while (target !== newsContainer) {
-          if (isHTMLElement(target)) {
+          if (isHtmlElement(target)) {
             if (target.classList.contains('source__item')) {
               const sourceId = target.getAttribute('data-source-id')
               if (sourceId !== null) {
@@ -38,7 +38,7 @@ class AppController extends AppLoader {
               return
             }
           }
-          if (isHTMLElement(target) && (target.parentNode != null)) {
+          if (isHtmlElement(target) && (target.parentNode != null)) {
             target = target.parentNode
           }
         }
