@@ -1,5 +1,6 @@
 import './sources.css'
-import { type SourceI, getElement } from '../../../types/types'
+import { type SourceI } from '../../../types/types'
+import { getElement } from '../../../types/utils'
 
 class Sources {
   draw (data: SourceI[]): void {

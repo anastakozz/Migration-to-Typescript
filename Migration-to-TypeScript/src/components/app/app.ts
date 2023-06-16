@@ -1,6 +1,6 @@
 import AppController from '../controller/controller'
 import { AppView } from '../view/appView'
-import { getElement } from '../../types/types'
+import { getElement } from '../../types/utils'
 
 class App {
   private readonly controller: AppController

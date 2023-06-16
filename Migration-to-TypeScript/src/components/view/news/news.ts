@@ -1,5 +1,6 @@
 import './news.css'
-import { type ArticleI, getElement, isHtmlElement } from '../../../types/types'
+import { type ArticleI } from '../../../types/types'
+import { isHtmlElement, getElement } from '../../../types/utils'
 
 class News {
   draw (data: ArticleI[]): void {

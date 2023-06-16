@@ -1,6 +1,7 @@
 import AppLoader from './appLoader'
-import { isHtmlElement, type NewsResponseI, type SourcesResponseI } from '../../types/types'
+import { type NewsResponseI, type SourcesResponseI } from '../../types/types'
 import { EndpointsEnum } from '../../types/types'
+import { isHtmlElement } from '../../types/utils'
 
 class AppController extends AppLoader {
   getSources (callback: (data: SourcesResponseI) => void): void {
