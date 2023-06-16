@@ -47,8 +47,8 @@ export function isHTMLElement (element: EventTarget | null): element is HTMLElem
   return Boolean((element != null) && element instanceof HTMLElement)
 }
 
-export enum Endpoints {
+export enum EndpointsEnum {
   Everything = 'everything',
-  Top_headlines = 'top-headlines',
+  TopHeadlines = 'top-headlines',
   Sources = 'sources'
 }

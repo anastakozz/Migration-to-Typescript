@@ -1,12 +1,12 @@
 import AppLoader from './appLoader'
 import { isHTMLElement, type NewsResponse, type SourcesResponse } from '../../types/types'
-import { Endpoints } from '../../types/types'
+import { EndpointsEnum } from '../../types/types'
 
 class AppController extends AppLoader {
   getSources (callback: (data: SourcesResponse) => void): void {
     super.getResp(
       {
-        endpoint: Endpoints.Sources
+        endpoint: EndpointsEnum.Sources
       },
       callback
     )
@@ -26,7 +26,7 @@ class AppController extends AppLoader {
                   newsContainer.setAttribute('data-source', sourceId)
                   super.getResp(
                     {
-                      endpoint: Endpoints.Everything,
+                      endpoint: EndpointsEnum.Everything,
                       options: {
                         sources: sourceId
                       }
