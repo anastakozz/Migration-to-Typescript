@@ -1,9 +1,9 @@
 import AppLoader from './appLoader'
-import { isHTMLElement, type NewsResponse, type SourcesResponse } from '../../types/types'
+import { isHTMLElement, type NewsResponseI, type SourcesResponseI } from '../../types/types'
 import { EndpointsEnum } from '../../types/types'
 
 class AppController extends AppLoader {
-  getSources (callback: (data: SourcesResponse) => void): void {
+  getSources (callback: (data: SourcesResponseI) => void): void {
     super.getResp(
       {
         endpoint: EndpointsEnum.Sources
@@ -12,7 +12,7 @@ class AppController extends AppLoader {
     )
   }
 
-  getNews (e: Event, callback: (data: NewsResponse) => void): void {
+  getNews (e: Event, callback: (data: NewsResponseI) => void): void {
     let target: EventTarget | null = e.target
     if (isHTMLElement(target)) {
       const newsContainer: HTMLElement = e.currentTarget as HTMLElement

@@ -1,11 +1,11 @@
 
-export interface NewsResponse {
+export interface NewsResponseI {
   status: string
   totalResults: number
-  articles: Article[]
+  articles: ArticleI[]
 }
 
-export interface Article {
+export interface ArticleI {
   source: { id: string, name: string }
   author: string
   title: string
@@ -16,12 +16,12 @@ export interface Article {
   content: string
 }
 
-export interface SourcesResponse {
+export interface SourcesResponseI {
   status: string
-  sources: Source[]
+  sources: SourceI[]
 }
 
-export interface Source {
+export interface SourceI {
   id: string
   name: string
   description: string
@@ -39,9 +39,9 @@ export function getElement<T extends HTMLElement> (root: HTMLElement, selector: 
   return element
 }
 
-export type Callback<T = void> = (data: T) => void
+export type CallbackType<T = void> = (data: T) => void
 
-export type Options = Record<string, string>
+export type OptionsType = Record<string, string>
 
 export function isHTMLElement (element: EventTarget | null): element is HTMLElement {
   return Boolean((element != null) && element instanceof HTMLElement)

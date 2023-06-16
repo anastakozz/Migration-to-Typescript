@@ -1,13 +1,13 @@
-import { type Options } from '../../types/types'
+import { type OptionsType } from '../../types/types'
 
 class Loader {
-  constructor (private readonly baseLink: string, private readonly options: Options) {
+  constructor (private readonly baseLink: string, private readonly options: OptionsType) {
     this.baseLink = baseLink
     this.options = options
   }
 
   public getResp<T>(
-    { endpoint, options = {} }: { endpoint: string, options?: Options },
+    { endpoint, options = {} }: { endpoint: string, options?: OptionsType },
     callback: (data: T) => void
   ): void {
     this.load('GET', endpoint, callback, options)
@@ -22,7 +22,7 @@ class Loader {
     return res
   }
 
-  private makeUrl (options: Options, endpoint: string): string {
+  private makeUrl (options: OptionsType, endpoint: string): string {
     const urlOptions = { ...this.options, ...options }
     let url = `${this.baseLink}${endpoint}?`
 

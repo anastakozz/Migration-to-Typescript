@@ -1,8 +1,8 @@
 import './sources.css'
-import { type Source, getElement } from '../../../types/types'
+import { type SourceI, getElement } from '../../../types/types'
 
 class Sources {
-  draw (data: Source[]): void {
+  draw (data: SourceI[]): void {
     const fragment = document.createDocumentFragment()
     const sourceItemTemp = getElement<HTMLElement>(document.body, '#sourceItemTemp')
 

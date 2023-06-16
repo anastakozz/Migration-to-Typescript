@@ -1,6 +1,6 @@
 import News from './news/news'
 import Sources from './sources/sources'
-import { type NewsResponse, type SourcesResponse } from '../../types/types'
+import { type NewsResponseI, type SourcesResponseI } from '../../types/types'
 
 export class AppView {
   private readonly news: News
@@ -10,12 +10,12 @@ export class AppView {
     this.sources = new Sources()
   }
 
-  drawNews (data: NewsResponse): void {
+  drawNews (data: NewsResponseI): void {
     const values = data?.articles ? data?.articles : []
     this.news.draw(values)
   }
 
-  drawSources (data: SourcesResponse): void {
+  drawSources (data: SourcesResponseI): void {
     const values = data?.sources ? data?.sources : []
     this.sources.draw(values)
   }
