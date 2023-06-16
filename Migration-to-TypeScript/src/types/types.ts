@@ -33,9 +33,11 @@ export interface SourceI {
 
 export function getElement<T extends HTMLElement> (root: HTMLElement, selector: string): T {
   const element = root.querySelector<T>(selector)
+
   if (element === null) {
     throw new TypeError('Element should exist in DOM')
   }
+
   return element
 }
 
